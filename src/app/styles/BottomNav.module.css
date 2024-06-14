@@ -1,0 +1,14 @@
+/* src/styles/BottomNav.module.css */
+.navbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    display: flex;
+  }
+}
+
+.icon {
+  margin: 0 16px;
+}

@@ -1,27 +1,33 @@
+// src/components/BottomNav.js
 "use client";
-import Link from 'next/link';
+
 import { Navbar, Nav } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faPeopleGroup, faMoneyBillTransfer, faNewspaper, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/BottomNav.module.css';
 
-function BottomNav() {
+const BottomNav = () => {
   return (
     <Navbar bg="dark" variant="dark" fixed="bottom" className={styles.navbar}>
       <Nav className="m-auto">
-        <Link href="/" passHref>
-          <Nav.Link>Home</Nav.Link>
-        </Link>
-        <Link href="/leagues" passHref>
-          <Nav.Link>Leagues</Nav.Link>
-        </Link>
-        <Link href="/bets" passHref>
-          <Nav.Link>Bets</Nav.Link>
-        </Link>
-        <Link href="/profile" passHref>
-          <Nav.Link>Profile</Nav.Link>
-        </Link>
+        <Nav.Link href="/">
+          <FontAwesomeIcon icon={faHome} size="lg" className={styles.icon} />
+        </Nav.Link>
+        <Nav.Link href="/leagues">
+          <FontAwesomeIcon icon={faPeopleGroup} size="lg" className={styles.icon} />
+        </Nav.Link>
+        <Nav.Link href="/bets">
+          <FontAwesomeIcon icon={faMoneyBillTransfer} size="lg" className={styles.icon} />
+        </Nav.Link>
+        <Nav.Link href="/news">
+          <FontAwesomeIcon icon={faNewspaper} size="lg" className={styles.icon} />
+        </Nav.Link>
+        <Nav.Link href="/profile">
+          <FontAwesomeIcon icon={faUser} size="lg" className={styles.icon} />
+        </Nav.Link>
       </Nav>
     </Navbar>
   );
-}
+};
 
 export default BottomNav;

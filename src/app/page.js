@@ -1,13 +1,14 @@
 "use client";
 import useStore from './stores/useStore';
 import { Button, Container } from 'react-bootstrap';
+import Home from './Pages/Home';
 
 const HomePage = () => {
   const { user, setUser } = useStore();
 
   return (
     <Container className="p-4">
-      <h1 className="text-2xl font-bold">Welcome to Overtime Odds</h1>
+      <Home/>
       {user ? (
         <p className="mt-2">Logged in as {user.name}</p>
       ) : (
