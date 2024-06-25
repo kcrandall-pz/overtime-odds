@@ -1,9 +1,9 @@
 import React from 'react';
-import useStore from '../../stores/useStore';
+import useStore from '../stores/useStore';
 import { Container } from 'react-bootstrap';
-import Login from 'src/app/Components/Login';
+import Login from 'src/app/components/Login';
 import HomeNews from './HomeNews';
-import Instructions from 'src/app/Components/Introduction';
+import Instructions from 'src/app/components/Introduction';
 
 
 const Home = () => {

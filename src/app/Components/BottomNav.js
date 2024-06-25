@@ -19,7 +19,7 @@ const BottomNav = () => {
         <Nav.Link href="/bets">
           <FontAwesomeIcon icon={faMoneyBillTransfer} size="lg" className={styles.icon} />
         </Nav.Link>
-        <Nav.Link href="/news">
+        <Nav.Link href="/newsResearch">
           <FontAwesomeIcon icon={faNewspaper} size="lg" className={styles.icon} />
         </Nav.Link>
         <Nav.Link href="/profile">

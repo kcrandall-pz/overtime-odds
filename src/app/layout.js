@@ -1,9 +1,9 @@
 // src/app/layout.js
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/globals.css';
-import Head from 'next/head';
-import TopNav from './Components/TopNav';
-import BottomNav from './Components/BottomNav';
+import TopNav from './components/TopNav';
+import BottomNav from './components/BottomNav';
 
 export const metadata = {
   title: 'Overtime Odds',

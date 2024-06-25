@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     background-color: #f2f2f2;
+
 }
 
 .loginBox {
@@ -13,20 +14,25 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
+    min-width: 280px;
     text-align: center;
 }
 
-.loginBox h2 {
+.loginBox h6 {
+    color: rgb(163, 163, 163);
     margin-bottom: 20px;
 }
 
-.loginBox .formGroup {
+.formGroup {
     margin-bottom: 15px;
 }
 
-.loginBox .formLabel {
-    font-size: 0.9rem;
+.formLabel {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 0.8rem;
 }
 
 .formControl {
@@ -39,8 +45,15 @@
     width: 100%;
     max-width: 300px;
     border-radius: 5px;
+    background-color: #712cf9;
+    border-color: #712cf9;
+    margin-top: 2px;
 }
 
-.signupLink {
+.loginContainer p {
     margin-top: 15px;
+}
+
+.loginContainer a {
+    color: #712cf9;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from 'react-bootstrap';
-import Home from './Pages/HomePage/Home';
+import Home from './home/page';
 
 const HomePage = () => {
 

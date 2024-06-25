@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
@@ -17,7 +19,7 @@ const Login = () => {
             const { token, user } = response.data;
             localStorage.setItem('token', token);
             setUser(user);
-            window.location.href = '/home'; // Redirect to home or profile page
+            window.location.href = '/home';
         } catch (err) {
             setError('Invalid email or password');
         }
@@ -26,24 +28,27 @@ const Login = () => {
     return (
         <Container className={styles['loginContainer']}>
             <div className={styles['loginBox']}>
-                <h2>Log-in to your account</h2>
+                <h2>Login</h2>
+                <h6>Please sign in to continue</h6>
                 <Form onSubmit={handleLogin}>
-                    <Form.Group controlId="formEmail">
-                        <Form.Label>Email address</Form.Label>
+                    <Form.Group controlId="formBasicEmail" className={styles['formGroup']}>
+                        <Form.Label className={styles['formLabel']}>Email address</Form.Label>
                         <Form.Control
                             type="email"
                             placeholder="E-mail address"
+                            className={styles['formControl']}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </Form.Group>
 
-                    <Form.Group controlId="formPassword">
-                        <Form.Label>Password</Form.Label>
+                    <Form.Group controlId="formBasicPassword" className={styles['formGroup']}>
+                        <Form.Label className={styles['formLabel']}>Password</Form.Label>
                         <Form.Control
                             type="password"
                             placeholder="Password"
+                            className={styles['formControl']}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -52,7 +57,7 @@ const Login = () => {
 
                     {error && <p className="text-danger">{error}</p>}
 
-                    <Button variant="primary" type="submit" className="login-button">
+                    <Button variant="primary" type="submit" className={styles['loginButton']}>
                         Login
                     </Button>
                 </Form>

@@ -21,7 +21,7 @@ const TopNav = () => {
           <Nav.Link href="/" className={styles['nav-link']}>Home</Nav.Link>
           <Nav.Link href="/leagues" className={styles['nav-link']}>Leagues</Nav.Link>
           <Nav.Link href="/bets" className={styles['nav-link']}>Bets</Nav.Link>
-          <Nav.Link href="/news" className={styles['nav-link']}>News & Research</Nav.Link>
+          <Nav.Link href="/newsResearch" className={styles['nav-link']}>News & Research</Nav.Link>
           <Nav.Link href="/profile" className={styles['nav-link']}>Profile</Nav.Link>
         </Nav>
       </Navbar.Collapse>
