@@ -1,6 +1,6 @@
 /* Login.module.css */
 
-.loginContainer {
+.signupContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     margin-top: 25px;
 }
 
-.loginBox {
+.signupBox {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -19,7 +19,7 @@
     text-align: center;
 }
 
-.loginBox h6 {
+.signupBox h6 {
     color: rgb(163, 163, 163);
     margin-bottom: 20px;
 }
@@ -41,7 +41,7 @@
     padding: 0.375rem 0.75rem;
 }
 
-.loginButton {
+.signupButton {
     width: 100%;
     max-width: 300px;
     border-radius: 5px;
@@ -50,10 +50,10 @@
     margin-top: 2px;
 }
 
-.loginContainer p {
+.signupContainer p {
     margin-top: 15px;
 }
 
-.loginContainer a {
+.signupContainer a {
     color: #712cf9;
 }

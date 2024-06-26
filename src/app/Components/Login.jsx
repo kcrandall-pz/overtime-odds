@@ -1,15 +1,15 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import useStore from '../stores/useStore';
 import styles from '../styles/Login.module.css';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [error, setError] = useState();
     const { setUser } = useStore();
 
     const handleLogin = async (event) => {
@@ -26,18 +26,18 @@ const Login = () => {
     };
 
     return (
-        <Container className={styles['loginContainer']}>
+        <div className={styles['loginContainer']}>
             <div className={styles['loginBox']}>
                 <h2>Login</h2>
                 <h6>Please sign in to continue</h6>
                 <Form onSubmit={handleLogin}>
-                    <Form.Group controlId="formBasicEmail" className={styles['formGroup']}>
-                        <Form.Label className={styles['formLabel']}>Email address</Form.Label>
+                    <Form.Group className={styles['formGroup']}>
+                        <Form.Label className={styles['formLabel']}>Email</Form.Label>
                         <Form.Control
                             type="email"
                             placeholder="E-mail address"
                             className={styles['formControl']}
-                            value={email}
+                            // value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
@@ -65,8 +65,9 @@ const Login = () => {
                     New to us? <a href="/signup">Sign Up</a>
                 </p>
             </div>
-        </Container>
+        </div>
     );
+
 };
 
 export default Login;

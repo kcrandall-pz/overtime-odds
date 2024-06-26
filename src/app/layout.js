@@ -5,6 +5,7 @@ import './styles/globals.css';
 import TopNav from './components/TopNav';
 import BottomNav from './components/BottomNav';
 
+
 export const metadata = {
   title: 'Overtime Odds',
   description: 'Your Fantasy Betting App',
