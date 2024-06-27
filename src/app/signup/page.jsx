@@ -30,6 +30,7 @@ const Signup = () => {
         <Container className={styles['signupContainer']}>
             <div className={styles['signupBox']}>
                 <h2>Sign Up</h2>
+                <h6>Complete the following to create an account</h6>
                 <Form onSubmit={handleSignup}>
                     <Form.Group controlId="formName" className={styles['formGroup']}>
                         <Form.Label className={styles['formLabel']}>Display Name</Form.Label>

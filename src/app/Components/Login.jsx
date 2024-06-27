@@ -37,7 +37,7 @@ const Login = () => {
                             type="email"
                             placeholder="E-mail address"
                             className={styles['formControl']}
-                            // value={email}
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />

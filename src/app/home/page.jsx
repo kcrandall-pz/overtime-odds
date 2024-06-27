@@ -19,7 +19,7 @@ const Home = () => {
         <>
             <h1>Welcome to Overtime Odds</h1>
             {user ? (
-                <p className="mt-2">Logged in as {user.name}</p>
+                <p className="mt-2">Logged in as {user.display_name}</p>
               ) : (
                 <>
                     <Login/>
