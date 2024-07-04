@@ -28,3 +28,10 @@
     height: 20px;
   }
 }
+
+.logoutButton {
+  max-width: 100px;
+  background-color: #712cf9;
+  border-color: #712cf9;
+  margin-top: 2px;
+}

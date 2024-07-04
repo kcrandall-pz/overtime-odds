@@ -1,34 +1,21 @@
-"use client"
-
-import React from 'react';
-import useStore from '../stores/useStore';
-import HomeNews from './HomeNews';
-import Instructions from 'src/app/components/Introduction';
 import dynamic from 'next/dynamic';
-// import Login from '../components/Login';
+import Instructions from '../components/Instructions';
+import HomeNews from './HomeNews';
 
-const Login = dynamic(() => import('../components/Login'), {
-    ssr: false,
-})
-
+// Dynamically import the ClientComponent to avoid marking the entire Home component as a client component
+const ClientCheck = dynamic(() => import('../components/ClientCheck'), {
+  ssr: false,
+});
 
 const Home = () => {
-    const { user, setUser } = useStore();
-
-    return(
-        <>
-            <h1>Welcome to Overtime Odds</h1>
-            {user ? (
-                <p className="mt-2">Logged in as {user.display_name}</p>
-              ) : (
-                <>
-                    <Login/>
-                    <Instructions/>
-                </>
-              )}
-              <HomeNews/>
-        </>
-    )
-}
+  return (
+    <>
+      <h1>Welcome to Overtime Odds</h1>
+      <ClientCheck />
+      <Instructions />
+      <HomeNews />
+    </>
+  );
+};
 
 export default Home;

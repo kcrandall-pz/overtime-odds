@@ -57,3 +57,37 @@
 .signupContainer a {
     color: #712cf9;
 }
+
+
+.profilePicRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePicCol {
+    flex: 1;
+    min-width: 95px;
+    max-width: 95px;
+    padding: 3px;
+}
+
+.profilePic {
+    width: 200%;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent; /* Add border to selected image */
+    border-radius: 25px;
+}
+
+.profilePic.selected {
+    border-color: #712cf9; /* Highlight color */
+}
+
+.returnHomeButton {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #712cf9;
+    border-color: #712cf9;
+    margin-top: 2px;
+}

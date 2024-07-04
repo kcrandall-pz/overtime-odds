@@ -1,16 +1,27 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Image } from 'react-bootstrap';
 import axios from 'axios';
 import styles from './Signup.module.css';
+import SuccessModal from './SuccessModal';
 
 const Signup = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [selectedProfilePic, setSelectedProfilePic] = useState(null);
+    const [displayModal, setDisplayModal] = useState(false);
     const [error, setError] = useState('');
+
+    const profilePics = [
+        '/profile_icons/_green.png',
+        '/profile_icons/_blue.png',
+        '/profile_icons/_purple.png',
+        '/profile_icons/_red.png',
+        '/profile_icons/_yellow.png',
+    ];
 
     const handleSignup = async (event) => {
         event.preventDefault();
@@ -18,12 +29,34 @@ const Signup = () => {
             setError('Passwords do not match');
             return;
         }
+        
         try {
-            await axios.post('/api/signup', { name, email, password });
-            window.location.href = '/';
+            const response = await axios.post('/api/register', {
+                email,
+                password,
+                displayName: name,
+                profilePic: selectedProfilePic
+            });
+
+            if (response.status === 200) {
+                setDisplayModal(true);
+                setName('');
+                setEmail('');
+                setPassword('');
+                setConfirmPassword('');
+                setSelectedProfilePic(null);
+            } else {
+                setError('Failed to register');
+            }
+
         } catch (err) {
-            setError('Failed to sign up');
+            console.error('Registration error:', err);
+            setError('Failed to register');
         }
+    };
+
+    const handleProfilePicClick = (picUrl) => {
+        setSelectedProfilePic(picUrl);
     };
 
     return (
@@ -31,6 +64,7 @@ const Signup = () => {
             <div className={styles['signupBox']}>
                 <h2>Sign Up</h2>
                 <h6>Complete the following to create an account</h6>
+                {displayModal && <SuccessModal />}
                 <Form onSubmit={handleSignup}>
                     <Form.Group controlId="formName" className={styles['formGroup']}>
                         <Form.Label className={styles['formLabel']}>Display Name</Form.Label>
@@ -75,6 +109,21 @@ const Signup = () => {
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
+                    </Form.Group>
+                    <Form.Group controlId="formProfilePic" className={styles['formGroup']}>
+                        <Form.Label className={styles['formLabel']}>Select Profile Picture</Form.Label>
+                        <Row className={styles['profilePicRow']}>
+                            {profilePics.map((pic, index) => (
+                                <Col key={index} xs={6} md={2} className={styles['profilePicCol']}>
+                                    <Image
+                                        src={pic}
+                                        className={`${styles['profilePic']} ${selectedProfilePic === pic ? styles['selected'] : ''}`}
+                                        onClick={() => handleProfilePicClick(pic)}
+                                        thumbnail
+                                    />
+                                </Col>
+                            ))}
+                        </Row>
                     </Form.Group>
                     {error && <p className="text-danger">{error}</p>}
                     <Button variant="primary" type="submit" className={styles['signupButton']}>

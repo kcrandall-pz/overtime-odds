@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 
 const useStore = create((set) => ({
@@ -9,7 +8,7 @@ const useStore = create((set) => ({
   leagues: [],
   bets: [],
   setUser: (user) => set({
-    user: user.email,
+    user: user,  // Set the entire user object
     id: user.id,
     display_name: user.display_name,
     profile_pic: user.profile_pic
