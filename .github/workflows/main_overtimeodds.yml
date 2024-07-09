@@ -30,13 +30,12 @@ jobs:
       - name: Zip and archive files for deployment
         run: |
           mkdir deploy
-          cp -r .next deploy/
-          cp -r public deploy/
-          cp package.json deploy/
-          cp -r node_modules deploy/
-          cd deploy
-          Compress-Archive -r ../release.zip .
-      
+          Copy-Item -Recurse -Path .next -Destination deploy/
+          Copy-Item -Recurse -Path public -Destination deploy/
+          Copy-Item -Path package.json -Destination deploy/
+          Copy-Item -Recurse -Path node_modules -Destination deploy/
+          Compress-Archive -Path deploy -DestinationPath release.zip
+    
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
