@@ -59,7 +59,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_586A17AFF80948928086B2679700CF5D }}
 
       - name: unzip artifact for deployment
-        run: Expand-Archive release.zip
+        run: unzip release.zip
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
