@@ -35,7 +35,7 @@ jobs:
           cp package.json deploy/
           cp -r node_modules deploy/
           cd deploy
-          zip -r ../release.zip .
+          Compress-Archive -r ../release.zip .
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
