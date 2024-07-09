@@ -27,8 +27,15 @@ jobs:
           npm run build 
           npm run test --if-present
 
-      - name: Zip artifact for deployment
-        run: Compress-Archive . release.zip
+      - name: Zip and archive files for deployment
+        run: |
+          mkdir deploy
+          cp -r .next deploy/
+          cp -r public deploy/
+          cp package.json deploy/
+          cp -r node_modules deploy/
+          cd deploy
+          zip -r ../release.zip .
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
