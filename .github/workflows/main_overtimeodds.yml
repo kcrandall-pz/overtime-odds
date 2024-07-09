@@ -27,15 +27,9 @@ jobs:
           npm run build 
           npm run test --if-present
 
-      - name: Zip and archive files for deployment
-        run: |
-          mkdir deploy
-          Copy-Item -Recurse -Path .next -Destination deploy/
-          Copy-Item -Recurse -Path public -Destination deploy/
-          Copy-Item -Path package.json -Destination deploy/
-          Copy-Item -Recurse -Path node_modules -Destination deploy/
-          Compress-Archive -Path deploy -DestinationPath release.zip
-    
+      - name: Zip artifact for deployment
+        run: Compress-Archive . release.zip
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -73,5 +67,5 @@ jobs:
         with:
           app-name: 'overtimeodds'
           slot-name: 'Production'
-          package: release.zip
+          package: .
           
