@@ -32,8 +32,10 @@ jobs:
           cp package.json deploy/
           cp next.config.mjs deploy/
           cp -r node_modules deploy/
+          cp server.js deploy/
           cd deploy
           Compress-Archive -Path . -DestinationPath ../release.zip
+        
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
