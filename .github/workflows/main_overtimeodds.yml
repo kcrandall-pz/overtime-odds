@@ -33,6 +33,7 @@ jobs:
           cp next.config.mjs deploy/
           cp -r node_modules deploy/
           cp server.js deploy/
+          cp web.config deploy/
           cd deploy
           Compress-Archive -Path . -DestinationPath ../release.zip
         
