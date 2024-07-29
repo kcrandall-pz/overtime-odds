@@ -24,21 +24,19 @@ jobs:
           npm run build 
           npm run test --if-present
 
-          - name: Prepare deployment folder
-          run: |
-            mkdir deploy
-            cp -r .next deploy/
-            cp -r public deploy/
-            cp package.json deploy/
-            cp next.config.mjs deploy/
-            cp -r node_modules deploy/
-            cp server.js deploy/
-            cp web.config deploy/
-            cp -r src deploy/  # Add this line to copy the src folder
-            cd deploy
-            Compress-Archive -Path . -DestinationPath ../release.zip
-        
-        
+      - name: Prepare deployment folder
+        run: |
+          mkdir deploy
+          cp -r .next deploy/
+          cp -r public deploy/
+          cp package.json deploy/
+          cp next.config.mjs deploy/
+          cp -r node_modules deploy/
+          cp server.js deploy/
+          cp web.config deploy/
+          cp -r src deploy/  # Add this line to copy the src folder
+          cd deploy
+          Compress-Archive -Path . -DestinationPath ../release.zip
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
