@@ -1,0 +1,73 @@
+.headContainer {
+    display: flex;
+    align-items: center;
+    position: relative; /* To position the edit icon within the container */
+}
+
+.namePlate {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.name {
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.profilepic {
+    max-width: 100px;
+    height: fit-content;
+    margin: 5px;
+}
+
+.editIcon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.formLabel {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.profilePicRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePicCol {
+    flex: 1;
+    min-width: 95px;
+    max-width: 95px;
+    padding: 3px;
+}
+
+.profilePic {
+    width: 200%;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent; /* Add border to selected image */
+    border-radius: 25px;
+}
+
+.profilePic.selected {
+    border-color: #712cf9; /* Highlight color */
+}
+
+.saveButton {
+    border-radius: 5px;
+    background-color: #712cf9;
+    border-color: #712cf9;
+    margin-top: 2px;
+}

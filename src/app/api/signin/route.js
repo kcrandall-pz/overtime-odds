@@ -33,7 +33,7 @@ export async function POST(request) {
               id: data.user.id,
               email: data.user.email,
               display_name: data.user.display_name,
-              profile_pic: data.user.profile_picture_url
+              profile_pic: data.user.profile_pic
           }
       }), { status: 200 });
 
